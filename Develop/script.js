@@ -1,14 +1,8 @@
-var dateDisplayEl = $("#currentDay");
+var dateDisplayEl = $('#date-display');
 
 function showDate () {
-    var currentD = moment().format('MMM Do YY');
+    var currentD = moment().format('dddd, MMMM Do YYYY');
     dateDisplayEl.text(currentD);
 }
+showDate();
 
-
-
-
-//function displayTime() {
-    var rightNow = moment().format('MMM DD, YYYY [at] hh:mm:ss a');
-    timeDisplayEl.text(rightNow);
-  //}

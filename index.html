@@ -18,7 +18,7 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./Develop/style.css" />
     <title>Work Day Scheduler</title>
   </head>
 
@@ -26,15 +26,26 @@
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
+      <p id="currentDay" class="lead"><span id="date-display">mm/dd/yy</span></p>
     </header>
     <div class="container">
-      <!-- Timeblocks go here -->
-
-      
+<!-- Timeblocks go here -->
+     <ul>
+        <p class="hour">9am</p> <p class="time-block">event<button class="saveBtn">Save</button></p>
+        <p class="hour">10am</p> <p class="time-block">event<button class="saveBtn">Save</button></p>
+        <p class="hour">11am</p> <p class="time-block">event<button class="saveBtn">Save</button></p>
+        <p class="hour">12pm</p> <p class="time-block">event<button class="saveBtn">Save</button></p>
+        <p class="hour">1pm</p> <p class="time-block">event<button class="saveBtn">Save</button></p>
+        <p class="hour">2pm</p> <p class="time-block">event<button class="saveBtn">Save</button></p>
+        <p class="hour">3pm</p> <p class="time-block">event<button class="saveBtn">Save</button></p>
+        <p class="hour">4pm</p> <p class="time-block">event<button class="saveBtn">Save</button></p>
+        <p class="hour">5pm</p> <p class="time-block">event<button class="saveBtn">Save</button></p>
+     </ul>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./Develop/script.js"></script>
+
   </body>
 </html>
