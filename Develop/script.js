@@ -7,41 +7,43 @@ function showDate () {
     var currentD = moment().format('dddd, MMMM Do YYYY');
     dateDisplayEl.text(currentD);
 }
+
 showDate();
 //edit this
 function saveEvent() {
     //adds eventlistener on saveBtn
     saveButton.on("click", function() {
 
-        var event = saveButton.siblings(".description").val();
+        var calNote = $(".description").val();
         var hour = saveButton.parent().attr("id");
         // stores text in local storage
-        localStorage.setItem(hour, event);
+        localStorage.setItem(hour, calNote);
     })
+    saveEvent();
 
-
-function scheduleTrack() {
+    function scheduleTrack() {
     var presentTime = moment().hour()
 
     $('.time-block').each(function() {
         //fix this
-        var currentTime = parseInt($(this).attr("id").split("hour")[1])
+        var timeSlot = parseInt($('.time-block').attr("id").split("hour")[1])
     
-        if(currentTime === presentTime) {
-            $(this).addClass("present");
-            $(this).removeClass("past");
-            $(this).removeClass("future");
+        if(timeSlot === presentTime) {
+            $('.time-block').addClass("present");
+            $('.time-block').removeClass("past");
+            $('.time-block').removeClass("future");
 
-        } else if(currentTime < presentTime) {
-            $(this).addClass("past");
-            $(this).removeClass("present");
-            $(this).removeClass("future");
+        } else if(timeSlot < presentTime) {
+            $('.time-block').addClass("past");
+            $('.time-block').removeClass("present");
+            $('.time-block').removeClass("future");
         } else {
-            $(this).addClass("future");
-            $(this).removeClass("past");
-            $(this).removeClass("present");        
+            $('.time-block').addClass("future");
+            $('.time-block').removeClass("past");
+            $('.time-block').removeClass("present");        
         }
     });
+
     }
     
     $("#nine .description").val(localStorage.getItem("#nine"));
@@ -56,3 +58,4 @@ function scheduleTrack() {
 
     scheduleTrack();
 };
+
