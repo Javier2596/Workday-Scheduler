@@ -18,36 +18,21 @@ $('.saveBtn').on('click', function () {
     localStorage.setItem(hourEl, descriptEl);
 });
 
+   //ask at office hours how to fix function  
+function scheduleTrack() {
+     var presentTime = moment().hour();
 
-
-
-
-    
-//function scheduleTrack() {
-  //  var presentTime = moment().hour();
-
-    //$('.time-block').each(function() {
-        //fix this
-      //  var timeSlot = $('.hour').val();
-    
-        //if(timeSlot === presentTime) {
-          //  $('.time-block').addClass("present");
-            //$('.time-block').removeClass("past");
-            //$('.time-block').removeClass("future");
-
-       // } else if(timeSlot < presentTime) {
-           // $('.time-block').addClass("past");
-         //   $('.time-block').removeClass("present");
-            //$('.time-block').removeClass("future");
-       // } else {
-         //   $('.time-block').addClass("future");
-           // $('.time-block').removeClass("past");
-            //$('.time-block').removeClass("present");        
-       // }
-        //console.log(timeSlot);
-    //});
+        $('.time-block').each(function () {
+            var timeSlot = parseInt($(this).attr('hour')); 
+        
+            if(timeSlot < presentTime) {
+                $(this).removeClass('future');
+                $(this).removeClass('present');
+                $(this).addClass('past');
+            }
+    });
  
-  //  };
+    };
     
     $("#nine .description").val(localStorage.getItem("nine"));
     $("#ten .description").val(localStorage.getItem("ten"));
@@ -59,4 +44,4 @@ $('.saveBtn').on('click', function () {
     $("#four .description").val(localStorage.getItem("four"));
     $("#five .description").val(localStorage.getItem("five"));
 
-//    scheduleTrack();
+    scheduleTrack();
