@@ -1,8 +1,6 @@
 var dateDisplayEl = $('#date-display');
 var containerEl = $('container')
 
-
-
 //displays the current date
 function showDate () {
     var currentD = moment().format('dddd, MMMM Do YYYY');
@@ -18,30 +16,41 @@ $('.saveBtn').on('click', function () {
     localStorage.setItem(hourEl, descriptEl);
 });
 
-   //ask at office hours how to fix function  
+//function that changes color of the timeblock
 function scheduleTrack() {
+//military present time 
      var presentTime = moment().hour();
-
+//grabs each time block for this function
         $('.time-block').each(function () {
-            var timeSlot = parseInt($(this).attr('hour')); 
-        
+        //grabs the id value attribute 
+            var timeSlot = parseInt($(this).attr('id')); 
+//compares id value to military time and adds/removes correct class
             if(timeSlot < presentTime) {
                 $(this).removeClass('future');
                 $(this).removeClass('present');
                 $(this).addClass('past');
+            } else if(timeSlot === presentTime) {
+                $(this).removeClass('future');
+                $(this).removeClass('past');
+                $(this).addClass('present');
+            } else {
+                $(this).removeClass('present');
+                $(this).removeClass('past');
+                $(this).addClass('future');
             }
     });
  
     };
-    
-    $("#nine .description").val(localStorage.getItem("nine"));
-    $("#ten .description").val(localStorage.getItem("ten"));
-    $("#eleven .description").val(localStorage.getItem("eleven"));
-    $("#twelve .description").val(localStorage.getItem("twelve"));
-    $("#one .description").val(localStorage.getItem("one"));
-    $("#two .description").val(localStorage.getItem("two"));
-    $("#three .description").val(localStorage.getItem("three"));
-    $("#four .description").val(localStorage.getItem("four"));
-    $("#five .description").val(localStorage.getItem("five"));
-
     scheduleTrack();
+//grabs the value of in the descriptions saved in the local storage displays them even when you refresh the page    
+    $("#9 .description").val(localStorage.getItem("9"));
+    $("#10 .description").val(localStorage.getItem("10"));
+    $("#11 .description").val(localStorage.getItem("11"));
+    $("#12 .description").val(localStorage.getItem("12"));
+    $("#13 .description").val(localStorage.getItem("13"));
+    $("#14 .description").val(localStorage.getItem("14"));
+    $("#15 .description").val(localStorage.getItem("15"));
+    $("#16 .description").val(localStorage.getItem("16"));
+    $("#17 .description").val(localStorage.getItem("17"));
+
+   
