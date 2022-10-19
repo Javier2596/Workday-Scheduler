@@ -1,5 +1,4 @@
 var dateDisplayEl = $('#date-display');
-var containerEl = $('container')
 
 //displays the current date
 function showDate () {
